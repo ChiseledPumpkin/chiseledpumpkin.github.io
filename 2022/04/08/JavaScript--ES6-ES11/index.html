@@ -16,7 +16,7 @@
 <meta property="og:description" content="ES6是一个泛指，泛指ES2015及后续的版本ES 的全称是 ECMAScript, 他是由 ESMA 国际标准化组织，制定的一项脚本语言的标准化规范">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-07T18:13:44.678Z">
-<meta property="article:modified_time" content="2022-05-17T15:37:45.099Z">
+<meta property="article:modified_time" content="2022-07-12T14:13:53.374Z">
 <meta property="article:tag" content="javascript">
 <meta name="twitter:card" content="summary">
   
@@ -75,7 +75,7 @@
                     </nav>
                     <nav>
                         总文章数
-                        12
+                        13
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -495,6 +495,8 @@
 </ul>
 <h3 id="ES8新增"><a href="#ES8新增" class="headerlink" title="ES8新增"></a>ES8新增</h3><h4 id="async和await"><a href="#async和await" class="headerlink" title="async和await"></a>async和await</h4><p>async和await两种语法结合可以让异步代码像同步代码一样</p>
 <ul>
+<li><p>示例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">b</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">c</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;ccc&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">a</span> = <span class="keyword">async</span> (<span class="params"></span>)=&gt;&#123;</span><br><span class="line">    <span class="comment">// await b() 会暂停所在的async函数的执行</span></span><br><span class="line">    <span class="comment">// 等到异步的b函数执行结束后，再执行c函数(异步转同步)</span></span><br><span class="line">    <span class="keyword">await</span> <span class="title function_">b</span>()</span><br><span class="line">    <span class="title function_">c</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>async函数<br>async函数的返回值为promise对象<br>async返回的promise对象的结果值由async函数执行的返回值决定</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>)&#123;</span><br><span class="line">   <span class="comment">//1.如果返回的是一个非Promise的对象，则fn()返回的结果就是成功状态的Promise对象，值为返回值</span></span><br><span class="line">   <span class="comment">//2.如果返回的是一个Promise对象，则fn()返回的结果与内部return语句后的Promise对象的结果一致</span></span><br><span class="line">   <span class="comment">//3.如果返回的是抛出错误，则fn()返回的就是失败状态的Promise对象</span></span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">       <span class="title function_">resolve</span>(<span class="string">&#x27;成功的数据&#x27;</span>);</span><br><span class="line">       <span class="comment">// reject(&#x27;获取失败&#x27;);</span></span><br><span class="line">   &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> result = <span class="title function_">fn</span>();</span><br><span class="line">result.<span class="title function_">then</span>(<span class="function"><span class="params">value</span>=&gt;</span>&#123;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(value)  <span class="comment">//成功的数据</span></span><br><span class="line">&#125;,<span class="function"><span class="params">reason</span>=&gt;</span>&#123;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(reason)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
 <li><p>await表达式</p>
@@ -819,23 +821,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MacOS</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -844,6 +842,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MacOS</a>
               </li>
              
               <li class="article-tag-list-item">
